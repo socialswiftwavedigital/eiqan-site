@@ -33,6 +33,7 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Ready to Upgrade Your Transport Operations?"
         description="Tell us about your needs and we'll get back to you within 24 hours."
+        breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

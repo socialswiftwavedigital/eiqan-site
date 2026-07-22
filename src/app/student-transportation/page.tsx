@@ -96,6 +96,9 @@ export default function StudentTransportationPage() {
         audiencePoints={audiencePoints}
         ctaTitle="Ready to Modernize Your School's Transportation?"
         ctaDescription="Tell us about your student population and routes — we'll get back to you within 24 hours with a tailored plan."
+        breadcrumbs={[
+          { label: "Student Transportation", href: "/student-transportation" },
+        ]}
       />
     </>
   );

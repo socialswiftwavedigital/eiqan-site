@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { LucideIcon } from "lucide-react";
 import { Check } from "lucide-react";
 import { CTASection, PageHero, SectionHeading } from "@/components/ui";
+import type { Crumb } from "@/components/Breadcrumbs";
 
 type Feature = {
   icon: LucideIcon;
@@ -22,6 +23,7 @@ export default function ServicePageLayout({
   audiencePoints,
   ctaTitle,
   ctaDescription,
+  breadcrumbs,
 }: {
   eyebrow: string;
   title: string;
@@ -35,10 +37,16 @@ export default function ServicePageLayout({
   audiencePoints: string[];
   ctaTitle: string;
   ctaDescription: string;
+  breadcrumbs?: Crumb[];
 }) {
   return (
     <>
-      <PageHero eyebrow={eyebrow} title={title} description={heroDescription} />
+      <PageHero
+        eyebrow={eyebrow}
+        title={title}
+        description={heroDescription}
+        breadcrumbs={breadcrumbs}
+      />
 
       <section className="bg-white py-20 sm:py-28">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">

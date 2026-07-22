@@ -19,6 +19,7 @@ export default function BlogIndexPage() {
         eyebrow="EIQAN Blog"
         title="Insights on Safer, Smarter Transportation"
         description="Practical guidance on student transportation, corporate shuttles, fleet management, and safety technology."
+        breadcrumbs={[{ label: "Blog", href: "/blog" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

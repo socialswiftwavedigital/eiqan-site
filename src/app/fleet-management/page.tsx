@@ -96,6 +96,7 @@ export default function FleetManagementPage() {
         audiencePoints={audiencePoints}
         ctaTitle="Ready to Bring Structure to Your Fleet?"
         ctaDescription="Tell us about your fleet size and contracts — we'll get back to you within 24 hours with a tailored plan."
+        breadcrumbs={[{ label: "Fleet Management", href: "/fleet-management" }]}
       />
     </>
   );

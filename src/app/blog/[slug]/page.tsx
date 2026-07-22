@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CalendarDays, ArrowLeft } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import { CTASection } from "@/components/ui";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
 import { blogPosts, getPostBySlug } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
@@ -58,12 +58,13 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="bg-white py-16 sm:py-20">
         <div className="container-page">
           <div className="mx-auto max-w-3xl">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal"
-            >
-              <ArrowLeft className="h-4 w-4" /> Back to Blog
-            </Link>
+            <Breadcrumbs
+              light={false}
+              items={[
+                { label: "Blog", href: "/blog" },
+                { label: post.title, href: `/blog/${post.slug}` },
+              ]}
+            />
 
             <span className="mt-6 block text-xs font-semibold uppercase tracking-wide text-teal">
               {post.category}

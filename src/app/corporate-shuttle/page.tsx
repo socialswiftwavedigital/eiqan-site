@@ -96,6 +96,7 @@ export default function CorporateShuttlePage() {
         audiencePoints={audiencePoints}
         ctaTitle="Ready to Simplify Your Employee Shuttle Program?"
         ctaDescription="Tell us about your sites, shifts, and headcount — we'll get back to you within 24 hours with a tailored plan."
+        breadcrumbs={[{ label: "Corporate Shuttle", href: "/corporate-shuttle" }]}
       />
     </>
   );

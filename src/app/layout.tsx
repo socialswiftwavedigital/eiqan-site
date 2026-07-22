@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import StructuredData from "@/components/StructuredData";
-import { siteConfig } from "@/lib/site";
+import { isProdDeployment, siteConfig } from "@/lib/site";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -44,6 +44,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  robots: isProdDeployment
+    ? { index: true, follow: true }
+    : {
+        index: false,
+        follow: false,
+        googleBot: { index: false, follow: false },
+      },
 };
 
 export default function RootLayout({
@@ -73,6 +80,15 @@ export default function RootLayout({
                 contactType: "customer service",
               },
             ],
+          }}
+        />
+        <StructuredData
+          data={{
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: siteConfig.name,
+            url: siteConfig.url,
+            description: siteConfig.description,
           }}
         />
         <Header />

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
+import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
@@ -179,14 +180,21 @@ export function PageHero({
   eyebrow,
   title,
   description,
+  breadcrumbs,
 }: {
   eyebrow: string;
   title: string;
   description: string;
+  breadcrumbs?: Crumb[];
 }) {
   return (
     <section className="border-b border-white/10 bg-dark py-20 sm:py-28">
       <div className="container-page text-center">
+        {breadcrumbs && (
+          <div className="mb-6 flex justify-center">
+            <Breadcrumbs items={breadcrumbs} light />
+          </div>
+        )}
         <div className="flex justify-center">
           <Eyebrow>{eyebrow}</Eyebrow>
         </div>

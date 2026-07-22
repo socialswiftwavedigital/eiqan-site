@@ -33,6 +33,7 @@ export default function FaqPage() {
         eyebrow="FAQ"
         title="Frequently Asked Questions"
         description="Everything you need to know about how EIQAN works, who we serve, and how to get started."
+        breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

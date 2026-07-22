@@ -96,6 +96,7 @@ export default function BusRentalPage() {
         audiencePoints={audiencePoints}
         ctaTitle="Need a Bus for an Upcoming Trip or Event?"
         ctaDescription="Tell us your dates, route, and group size — we'll get back to you within 24 hours with availability and pricing."
+        breadcrumbs={[{ label: "Bus Rental", href: "/bus-rental" }]}
       />
     </>
   );

@@ -20,6 +20,7 @@ export default function AboutPage() {
         eyebrow="About EIQAN"
         title="We Built the Service We Wished Existed"
         description="EIQAN was founded to solve one of the most critical yet overlooked challenges globally — the safety and reliability of daily student and employee transportation."
+        breadcrumbs={[{ label: "About", href: "/about" }]}
       />
 
       <section className="bg-white py-20 sm:py-28">

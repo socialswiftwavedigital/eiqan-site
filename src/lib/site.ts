@@ -10,6 +10,13 @@ export const siteConfig = {
   whatsapp: "https://wa.me/966538742193",
 };
 
+// Vercel sets VERCEL_ENV to "production" | "preview" | "development" automatically.
+// On preview/dev deployments (e.g. *.vercel.app) we must not let search engines index
+// the site, since it's a duplicate of eiqan.com and would compete with it for ranking.
+export const isProdDeployment = process.env.VERCEL_ENV
+  ? process.env.VERCEL_ENV === "production"
+  : true;
+
 export type NavItem = {
   label: string;
   href: string;

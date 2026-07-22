@@ -34,9 +34,10 @@ export default function FaqPage() {
         title="Frequently Asked Questions"
         description="Everything you need to know about how EIQAN works, who we serve, and how to get started."
         breadcrumbs={[{ label: "FAQ", href: "/faq" }]}
+        image="/images/slide-5.jpg"
       />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page">
           <FaqAccordion items={faqs} />
         </div>

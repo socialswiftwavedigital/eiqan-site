@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: Props) {
         }}
       />
 
-      <article className="bg-white py-16 sm:py-20">
+      <article className="bg-white py-10 sm:py-14">
         <div className="container-page">
           <div className="mx-auto max-w-3xl">
             <Breadcrumbs

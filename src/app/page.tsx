@@ -117,14 +117,14 @@ export default function Home() {
       </section>
 
       {/* Problem */}
-      <section className="bg-offwhite py-20 sm:py-28">
+      <section className="bg-offwhite py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="The Problem"
             title="Student & Corporate Transport is Broken Worldwide"
             description="The daily reality for schools, companies, and parents is frustrating — and dangerous."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {problems.map((problem) => (
               <div
                 key={problem.number}
@@ -146,14 +146,14 @@ export default function Home() {
       </section>
 
       {/* Solution / Features */}
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="The Solution"
             title="We Don't Just Move People. We Manage Every Detail."
             description="EIQAN combines experienced transport operations with proprietary technology to deliver a fully managed, end-to-end transportation service. Our team handles the routing, compliance, driver oversight, and real-time monitoring — so you don't have to."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {coreFeatures.map((feature, i) => {
               const Icon = featureIcons[i];
               return (
@@ -170,14 +170,14 @@ export default function Home() {
       </section>
 
       {/* Stats */}
-      <section className="bg-dark py-20">
+      <section className="bg-dark py-14">
         <div className="container-page">
           <SectionHeading
             light
             eyebrow="By the Numbers"
             title="Built on Technology. Delivered by People Who Care."
           />
-          <div className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((stat) => (
               <StatBlock key={stat.label} {...stat} />
             ))}
@@ -186,14 +186,14 @@ export default function Home() {
       </section>
 
       {/* Who We Serve */}
-      <section className="bg-offwhite py-20 sm:py-28">
+      <section className="bg-offwhite py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="Who We Serve"
             title="Built for Organizations That Take Transport Seriously"
             description="Whether you run a school, a corporation, or a fleet — EIQAN is designed around your operational reality."
           />
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {serveCards.map((card) => (
               <Link
                 key={card.href}
@@ -230,13 +230,13 @@ export default function Home() {
       </section>
 
       {/* FAQ preview */}
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="FAQ"
             title="Frequently Asked Questions"
           />
-          <div className="mt-14">
+          <div className="mt-10">
             <FaqAccordion items={faqs.slice(0, 5)} />
           </div>
           <div className="mt-8 text-center">

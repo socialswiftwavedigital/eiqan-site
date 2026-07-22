@@ -20,9 +20,10 @@ export default function BlogIndexPage() {
         title="Insights on Safer, Smarter Transportation"
         description="Practical guidance on student transportation, corporate shuttles, fleet management, and safety technology."
         breadcrumbs={[{ label: "Blog", href: "/blog" }]}
+        image="/images/slide-4.jpg"
       />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (

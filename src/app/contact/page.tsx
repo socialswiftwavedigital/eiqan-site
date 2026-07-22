@@ -34,9 +34,10 @@ export default function ContactPage() {
         title="Ready to Upgrade Your Transport Operations?"
         description="Tell us about your needs and we'll get back to you within 24 hours."
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
+        image="/images/serve-corporate.jpg"
       />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
             <h2 className="text-xl font-bold text-dark">Get in Touch</h2>

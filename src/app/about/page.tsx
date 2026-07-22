@@ -21,9 +21,10 @@ export default function AboutPage() {
         title="We Built the Service We Wished Existed"
         description="EIQAN was founded to solve one of the most critical yet overlooked challenges globally — the safety and reliability of daily student and employee transportation."
         breadcrumbs={[{ label: "About", href: "/about" }]}
+        image="/images/slide-2.jpg"
       />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
             <SectionHeading
@@ -57,14 +58,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-offwhite py-20 sm:py-28">
+      <section className="bg-offwhite py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="What Drives Us"
             title="Our Values"
             description="Four principles guide every route we plan and every line of code we ship."
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((value, i) => {
               const Icon = valueIcons[i];
               return (
@@ -88,14 +89,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-dark py-20">
+      <section className="bg-dark py-14">
         <div className="container-page">
           <SectionHeading
             light
             eyebrow="Our Track Record"
             title="Our Service, by the Numbers"
           />
-          <div className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-4">
             {stats.map((stat) => (
               <StatBlock key={stat.label} {...stat} />
             ))}
@@ -103,7 +104,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page grid gap-10 lg:grid-cols-3">
           <div className="lg:col-span-1">
             <SectionHeading align="left" eyebrow="Get in Touch" title="Talk to Our Team" />

@@ -30,6 +30,7 @@ export const navItems: NavItem[] = [
   { label: "Fleet Management", href: "/fleet-management" },
   { label: "Bus Rental", href: "/bus-rental" },
   { label: "Blog", href: "/blog" },
+  { label: "Gallery", href: "/gallery" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

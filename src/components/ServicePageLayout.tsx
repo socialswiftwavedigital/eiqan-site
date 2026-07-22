@@ -46,9 +46,10 @@ export default function ServicePageLayout({
         title={title}
         description={heroDescription}
         breadcrumbs={breadcrumbs}
+        image={heroImage}
       />
 
-      <section className="bg-white py-20 sm:py-28">
+      <section className="bg-white py-12 sm:py-16">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 h-80 overflow-hidden rounded-2xl sm:h-96 lg:order-1">
             <Image src={heroImage} alt={title} fill className="object-cover" />
@@ -66,13 +67,13 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      <section className="bg-offwhite py-20 sm:py-28">
+      <section className="bg-offwhite py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading
             eyebrow="What's Included"
             title="Everything Your Operation Needs, in One Service"
           />
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div
                 key={feature.title}
@@ -93,7 +94,7 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      <section className="bg-dark py-20 sm:py-28">
+      <section className="bg-dark py-12 sm:py-16">
         <div className="container-page">
           <SectionHeading light title={audienceTitle} />
           <ul className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">

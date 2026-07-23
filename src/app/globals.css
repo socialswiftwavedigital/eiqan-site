@@ -50,3 +50,25 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+.custom-cursor-active,
+.custom-cursor-active * {
+  cursor: none !important;
+}
+
+.cursor-ring-hover {
+  width: 3rem;
+  height: 3rem;
+  border-color: var(--color-teal);
+  background: color-mix(in srgb, var(--color-teal) 12%, transparent);
+}
+
+.cursor-fx-wrapper {
+  display: none;
+}
+
+@media (pointer: fine) {
+  .cursor-fx-wrapper {
+    display: block;
+  }
+}

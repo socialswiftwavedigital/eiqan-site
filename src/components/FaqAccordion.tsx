@@ -16,21 +16,23 @@ export default function FaqAccordion({
         const isOpen = openIndex === index;
         return (
           <div key={item.question}>
-            <button
-              type="button"
-              className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-              onClick={() => setOpenIndex(isOpen ? null : index)}
-              aria-expanded={isOpen}
-            >
-              <span className="text-base font-semibold text-dark">
-                {item.question}
-              </span>
-              <ChevronDown
-                className={`h-5 w-5 shrink-0 text-teal transition-transform ${
-                  isOpen ? "rotate-180" : ""
-                }`}
-              />
-            </button>
+            <h3>
+              <button
+                type="button"
+                className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                onClick={() => setOpenIndex(isOpen ? null : index)}
+                aria-expanded={isOpen}
+              >
+                <span className="text-base font-semibold text-dark">
+                  {item.question}
+                </span>
+                <ChevronDown
+                  className={`h-5 w-5 shrink-0 text-teal transition-transform ${
+                    isOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </h3>
             {isOpen && (
               <div className="px-6 pb-5 text-sm leading-6 text-dark/65">
                 {item.answer}

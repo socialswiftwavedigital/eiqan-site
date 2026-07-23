@@ -8,6 +8,11 @@ export const siteConfig = {
   phone: "+966 53 874 2193",
   phoneHref: "tel:+966538742193",
   whatsapp: "https://wa.me/966538742193",
+  social: {
+    linkedin: "https://www.linkedin.com/company/eiqan",
+    x: "https://x.com/eiqan511184",
+    instagram: "https://www.instagram.com/eiqan2026",
+  },
 };
 
 // Vercel sets VERCEL_ENV to "production" | "preview" | "development" automatically.
@@ -40,6 +45,15 @@ export const services: NavItem[] = [
   { label: "Corporate Shuttle", href: "/corporate-shuttle" },
   { label: "Fleet Management", href: "/fleet-management" },
   { label: "Bus Rental", href: "/bus-rental" },
+];
+
+export const quickLinks: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Gallery", href: "/gallery" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const stats = [

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageHero } from "@/components/ui";
+import { PageHero, SectionHeading } from "@/components/ui";
 import Gallery from "@/components/Gallery";
 import { galleryImages } from "@/lib/gallery";
 
@@ -23,7 +23,14 @@ export default function GalleryPage() {
 
       <section className="bg-white py-16 sm:py-24">
         <div className="container-page">
-          <Gallery images={galleryImages} />
+          <SectionHeading
+            eyebrow="Our Fleet"
+            title="Photos From the Road"
+            description="A closer look at the vehicles and services behind every EIQAN-managed journey."
+          />
+          <div className="mt-12">
+            <Gallery images={galleryImages} />
+          </div>
         </div>
       </section>
     </>

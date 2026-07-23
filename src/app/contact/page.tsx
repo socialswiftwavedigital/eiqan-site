@@ -70,7 +70,10 @@ export default function ContactPage() {
           </div>
 
           <div className="rounded-2xl border border-black/8 bg-offwhite p-6 sm:p-8 lg:col-span-3">
-            <ContactForm />
+            <h2 className="text-xl font-bold text-dark">Send Us a Message</h2>
+            <div className="mt-6">
+              <ContactForm />
+            </div>
           </div>
         </div>
       </section>

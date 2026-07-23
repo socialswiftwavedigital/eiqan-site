@@ -22,8 +22,8 @@ import {
   SectionHeading,
   StatBlock,
 } from "@/components/ui";
-import FaqAccordion from "@/components/FaqAccordion";
-import { coreFeatures, faqs, problems, siteConfig, stats } from "@/lib/site";
+import { coreFeatures, problems, siteConfig, stats } from "@/lib/site";
+import WelcomePopup from "@/components/WelcomePopup";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} | Managed Student, Corporate & Bus Rental Transportation`,
@@ -63,6 +63,8 @@ const serveCards = [
 export default function Home() {
   return (
     <>
+      <WelcomePopup />
+
       {/* Hero */}
       <section className="relative overflow-hidden bg-dark">
         <div className="absolute inset-0">
@@ -225,24 +227,6 @@ export default function Home() {
                 </div>
               </Link>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ preview */}
-      <section className="bg-white py-16 sm:py-24">
-        <div className="container-page">
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Frequently Asked Questions"
-          />
-          <div className="mt-10">
-            <FaqAccordion items={faqs.slice(0, 5)} />
-          </div>
-          <div className="mt-8 text-center">
-            <SecondaryButton href="/faq" variant="light">
-              View All FAQs
-            </SecondaryButton>
           </div>
         </div>
       </section>

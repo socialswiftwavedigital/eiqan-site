@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { services, siteConfig } from "@/lib/site";
 
 const primaryLinks = [
@@ -105,7 +106,8 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-3 lg:flex">
+          <LanguageSwitcher />
           <Link
             href="/contact"
             className="rounded-lg bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
@@ -201,6 +203,9 @@ export default function Header() {
           >
             Get a Quote
           </Link>
+          <div className="mt-4 flex justify-center">
+            <LanguageSwitcher />
+          </div>
         </nav>
       )}
     </header>

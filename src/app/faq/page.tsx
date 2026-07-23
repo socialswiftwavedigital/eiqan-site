@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { CTASection, PageHero } from "@/components/ui";
+import { CTASection, PageHero, SectionHeading } from "@/components/ui";
 import FaqAccordion from "@/components/FaqAccordion";
 import StructuredData from "@/components/StructuredData";
 import { faqs } from "@/lib/site";
@@ -39,7 +39,10 @@ export default function FaqPage() {
 
       <section className="bg-white py-16 sm:py-24">
         <div className="container-page">
-          <FaqAccordion items={faqs} />
+          <SectionHeading title="Common Questions" />
+          <div className="mt-12">
+            <FaqAccordion items={faqs} />
+          </div>
         </div>
       </section>
 

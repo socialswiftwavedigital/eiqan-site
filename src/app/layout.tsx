@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ScrollToTop from "@/components/ScrollToTop";
+import CustomCursor from "@/components/CustomCursor";
 import StructuredData from "@/components/StructuredData";
 import { isProdDeployment, siteConfig } from "@/lib/site";
 
@@ -71,7 +73,12 @@ export default function RootLayout({
             description: siteConfig.description,
             email: siteConfig.email,
             telephone: siteConfig.phone,
-            sameAs: [siteConfig.whatsapp],
+            sameAs: [
+              siteConfig.whatsapp,
+              siteConfig.social.linkedin,
+              siteConfig.social.x,
+              siteConfig.social.instagram,
+            ],
             contactPoint: [
               {
                 "@type": "ContactPoint",
@@ -95,6 +102,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ScrollToTop />
+        <CustomCursor />
       </body>
     </html>
   );

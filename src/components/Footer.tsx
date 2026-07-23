@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, Phone, MessageCircle } from "lucide-react";
+import Logo from "@/components/Logo";
 import { navItems, services, siteConfig } from "@/lib/site";
 
 export default function Footer() {
@@ -10,15 +10,8 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-dark text-white/70">
       <div className="container-page grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/images/logo-light.png"
-              alt="EIQAN"
-              width={36}
-              height={36}
-              className="h-8 w-8"
-            />
-            <span className="text-lg font-bold text-white">EIQAN</span>
+          <Link href="/">
+            <Logo />
           </Link>
           <p className="mt-4 text-sm leading-6">{siteConfig.tagline}</p>
           <p className="mt-2 text-sm leading-6">

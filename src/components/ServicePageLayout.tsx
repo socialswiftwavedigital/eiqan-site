@@ -49,7 +49,7 @@ export default function ServicePageLayout({
         image={heroImage}
       />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-16 sm:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 h-80 overflow-hidden rounded-2xl sm:h-96 lg:order-1">
             <Image src={heroImage} alt={title} fill className="object-cover" />
@@ -67,13 +67,13 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      <section className="bg-offwhite py-12 sm:py-16">
+      <section className="bg-offwhite py-16 sm:py-24">
         <div className="container-page">
           <SectionHeading
             eyebrow="What's Included"
             title="Everything Your Operation Needs, in One Service"
           />
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
               <div
                 key={feature.title}
@@ -94,10 +94,10 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      <section className="bg-dark py-12 sm:py-16">
+      <section className="bg-dark py-16 sm:py-24">
         <div className="container-page">
           <SectionHeading light title={audienceTitle} />
-          <ul className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
+          <ul className="mx-auto mt-12 grid max-w-3xl gap-4 sm:grid-cols-2">
             {audiencePoints.map((point) => (
               <li key={point} className="flex items-start gap-3">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-teal/20 text-teal">

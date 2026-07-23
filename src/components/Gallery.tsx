@@ -11,23 +11,19 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
 
   return (
     <>
-      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3">
         {images.map((image, index) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className={`group relative aspect-square overflow-hidden rounded-2xl border border-black/8 text-left ${
-              image.category === "Brand" ? "bg-dark" : "bg-offwhite"
-            }`}
+            className="group relative aspect-square overflow-hidden rounded-2xl border border-black/8 bg-offwhite text-left"
           >
             <Image
               src={image.src}
               alt={image.alt}
               fill
-              className={`transition-transform duration-300 group-hover:scale-105 ${
-                image.category === "Brand" ? "object-contain p-8" : "object-cover"
-              }`}
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 transition-opacity group-hover:opacity-100">
               <div className="flex w-full items-center justify-between p-3">

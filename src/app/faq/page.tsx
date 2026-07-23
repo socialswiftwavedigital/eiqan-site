@@ -37,7 +37,7 @@ export default function FaqPage() {
         image="/images/slide-5.jpg"
       />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-16 sm:py-24">
         <div className="container-page">
           <FaqAccordion items={faqs} />
         </div>

@@ -16,12 +16,12 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="EIQAN in Motion"
-        description="Our brand, our fleet, and our services — tap any image to view it larger."
+        description="A look at our fleet and our services — tap any image to view it larger."
         breadcrumbs={[{ label: "Gallery", href: "/gallery" }]}
         image="/images/slide-3.jpg"
       />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-16 sm:py-24">
         <div className="container-page">
           <Gallery images={galleryImages} />
         </div>

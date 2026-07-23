@@ -149,9 +149,9 @@ export function CTASection({
   description?: string;
 }) {
   return (
-    <section className="bg-dark py-14">
+    <section className="bg-dark py-16">
       <div className="container-page">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-dark to-dark-soft px-6 py-12 text-center sm:px-16">
+        <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-teal-dark to-dark-soft px-6 py-14 text-center sm:px-16">
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
@@ -191,15 +191,15 @@ export function PageHero({
   image?: string;
 }) {
   return (
-    <section className="relative overflow-hidden border-b border-white/10 bg-dark py-12 sm:py-16">
+    <section className="relative overflow-hidden border-b border-white/10 bg-dark py-16 sm:py-24">
       {image && (
         <div className="absolute inset-0">
-          <Image src={image} alt="" fill className="object-cover opacity-25" />
+          <Image src={image} alt="" fill className="object-cover opacity-45" />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(rgba(13,13,13,0.8) 0%, rgba(13,13,13,0.65) 50%, rgba(13,13,13,0.92) 100%)",
+                "linear-gradient(rgba(13,13,13,0.65) 0%, rgba(13,13,13,0.5) 50%, rgba(13,13,13,0.85) 100%)",
             }}
           />
         </div>

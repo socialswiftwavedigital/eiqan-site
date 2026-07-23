@@ -23,7 +23,7 @@ export default function BlogIndexPage() {
         image="/images/slide-4.jpg"
       />
 
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-16 sm:py-24">
         <div className="container-page">
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {blogPosts.map((post) => (

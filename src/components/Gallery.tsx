@@ -40,6 +40,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
               src={image.src}
               alt={image.alt}
               fill
+              sizes="(min-width: 640px) 33vw, 50vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/0 to-black/0" />
@@ -103,6 +104,7 @@ export default function Gallery({ images }: { images: GalleryImage[] }) {
                 src={active.src}
                 alt={active.alt}
                 fill
+                sizes="(min-width: 1024px) 1024px, 100vw"
                 className="object-contain"
               />
             </div>

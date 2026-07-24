@@ -52,7 +52,13 @@ export default function ServicePageLayout({
       <section className="bg-white py-16 sm:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 h-80 overflow-hidden rounded-2xl sm:h-96 lg:order-1">
-            <Image src={heroImage} alt={title} fill className="object-cover" />
+            <Image
+              src={heroImage}
+              alt={title}
+              fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="object-cover"
+            />
           </div>
           <div className="order-1 lg:order-2">
             <SectionHeading align="left" eyebrow={introEyebrow} title={introTitle} />

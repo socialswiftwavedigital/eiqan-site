@@ -69,7 +69,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: siteConfig.name,
             url: siteConfig.url,
-            logo: `${siteConfig.url}/images/logo-light.png`,
+            logo: `${siteConfig.url}/images/logo-mark.png`,
             description: siteConfig.description,
             email: siteConfig.email,
             telephone: siteConfig.phone,

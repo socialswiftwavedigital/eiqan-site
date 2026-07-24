@@ -52,6 +52,7 @@ export default function AboutPage() {
               src="/images/slide-3.jpg"
               alt="EIQAN managed transportation fleet"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
             />
           </div>

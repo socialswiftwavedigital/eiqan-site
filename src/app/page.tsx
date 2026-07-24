@@ -73,6 +73,7 @@ export default function Home() {
             alt=""
             fill
             priority
+            sizes="100vw"
             className="object-cover opacity-55"
           />
           <div
@@ -207,6 +208,7 @@ export default function Home() {
                     src={card.image}
                     alt={card.title}
                     fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-dark/30" />

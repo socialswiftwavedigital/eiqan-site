@@ -82,7 +82,13 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             <div className="relative mt-8 h-72 w-full overflow-hidden rounded-2xl sm:h-96">
-              <Image src={post.image} alt={post.title} fill className="object-cover" />
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                sizes="(min-width: 768px) 768px, 100vw"
+                className="object-cover"
+              />
             </div>
 
             <div className="prose-content mt-10 space-y-5">

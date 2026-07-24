@@ -194,7 +194,7 @@ export function PageHero({
     <section className="relative overflow-hidden border-b border-white/10 bg-dark py-16 sm:py-24">
       {image && (
         <div className="absolute inset-0">
-          <Image src={image} alt="" fill className="object-cover opacity-45" />
+          <Image src={image} alt="" fill sizes="100vw" className="object-cover opacity-45" />
           <div
             className="absolute inset-0"
             style={{

@@ -1,7 +1,12 @@
 import Link from "next/link";
-import { Mail, Phone, MessageCircle } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Logo from "@/components/Logo";
-import { LinkedInIcon, InstagramIcon, XIcon } from "@/components/SocialIcons";
+import {
+  LinkedInIcon,
+  InstagramIcon,
+  XIcon,
+  WhatsAppIcon,
+} from "@/components/SocialIcons";
 import { quickLinks, services, siteConfig } from "@/lib/site";
 
 export default function Footer() {
@@ -28,6 +33,9 @@ export default function Footer() {
             </SocialIcon>
             <SocialIcon href={siteConfig.social.instagram} label="Instagram">
               <InstagramIcon className="h-4 w-4" />
+            </SocialIcon>
+            <SocialIcon href={siteConfig.whatsapp} label="WhatsApp">
+              <WhatsAppIcon className="h-4 w-4" />
             </SocialIcon>
           </div>
         </div>
@@ -80,7 +88,7 @@ export default function Footer() {
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <MessageCircle className="h-4 w-4 shrink-0 text-teal" />
+              <WhatsAppIcon className="h-4 w-4 shrink-0 text-teal" />
               <a
                 href={siteConfig.whatsapp}
                 target="_blank"

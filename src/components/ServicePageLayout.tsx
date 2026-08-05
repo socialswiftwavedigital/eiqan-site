@@ -3,6 +3,8 @@ import type { LucideIcon } from "lucide-react";
 import { Check } from "lucide-react";
 import { CTASection, PageHero, SectionHeading } from "@/components/ui";
 import type { Crumb } from "@/components/Breadcrumbs";
+import Gallery from "@/components/Gallery";
+import type { GalleryImage } from "@/lib/gallery";
 
 type Feature = {
   icon: LucideIcon;
@@ -21,6 +23,8 @@ export default function ServicePageLayout({
   features,
   audienceTitle,
   audiencePoints,
+  gallery,
+  galleryTitle,
   ctaTitle,
   ctaDescription,
   breadcrumbs,
@@ -35,6 +39,8 @@ export default function ServicePageLayout({
   features: Feature[];
   audienceTitle: string;
   audiencePoints: string[];
+  gallery?: GalleryImage[];
+  galleryTitle?: string;
   ctaTitle: string;
   ctaDescription: string;
   breadcrumbs?: Crumb[];
@@ -115,6 +121,20 @@ export default function ServicePageLayout({
           </ul>
         </div>
       </section>
+
+      {gallery && gallery.length > 0 && (
+        <section className="bg-white py-16 sm:py-24">
+          <div className="container-page">
+            <SectionHeading
+              eyebrow="Gallery"
+              title={galleryTitle ?? "See the Fleet"}
+            />
+            <div className="mt-12">
+              <Gallery images={gallery} />
+            </div>
+          </div>
+        </section>
+      )}
 
       <CTASection title={ctaTitle} description={ctaDescription} />
     </>

@@ -34,4 +34,64 @@ export const galleryImages: GalleryImage[] = [
     alt: "EIQAN transportation service on route",
     category: "Bus Rental",
   },
+  {
+    src: "/images/gallery/bus-rental-01.jpg",
+    alt: "EIQAN-branded rental bus, side view",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-02.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-03.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-04.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-05.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-06.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-07.jpg",
+    alt: "EIQAN-branded rental van, front view",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-08.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-09.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-10.jpg",
+    alt: "EIQAN-branded rental van, side view",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-11.jpg",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-12.jpg",
+    alt: "EIQAN-branded rental bus, studio shot",
+    category: "Bus Rental",
+  },
 ];

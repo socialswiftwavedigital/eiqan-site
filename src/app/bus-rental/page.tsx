@@ -10,6 +10,11 @@ import {
 import ServicePageLayout from "@/components/ServicePageLayout";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
+import { galleryImages } from "@/lib/gallery";
+
+const rentalGalleryImages = galleryImages.filter(
+  (image) => image.category === "Bus Rental"
+);
 
 export const metadata: Metadata = {
   title: "Bus Rental Services",
@@ -94,6 +99,8 @@ export default function BusRentalPage() {
         features={features}
         audienceTitle="Built for Every Kind of Trip"
         audiencePoints={audiencePoints}
+        gallery={rentalGalleryImages}
+        galleryTitle="Vehicles Available for Rental"
         ctaTitle="Need a Bus for an Upcoming Project?"
         ctaDescription="Tell us your dates, route, and group size — we'll get back to you within 24 hours with availability and pricing."
         breadcrumbs={[{ label: "Bus Rental", href: "/bus-rental" }]}

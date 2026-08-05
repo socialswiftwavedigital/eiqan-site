@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Bus Rental Services",
   description:
-    "On-demand and contract bus rental with live GPS tracking, vetted drivers, and AI safety monitoring — for events, tours, staff trips, and short-term transport needs.",
+    "On-demand and contract bus rental with vetted drivers and safety-checked vehicles — for events, tours, staff trips, and short-term transport needs.",
   alternates: { canonical: "/bus-rental" },
 };
 
@@ -27,19 +27,19 @@ const features = [
   },
   {
     icon: MapPin,
-    title: "Live Trip Tracking",
+    title: "Dedicated Trip Support",
     description:
-      "Every rental trip is tracked in real time, so organizers always know where the bus is and when it will arrive.",
+      "A dedicated coordinator manages your trip from confirmation to drop-off, so organizers always have a direct point of contact.",
   },
   {
     icon: ShieldCheck,
-    title: "AI Safety Monitoring",
+    title: "Safety-Checked Vehicles",
     description:
-      "The same onboard CCTV and AI monitoring used across our managed fleets is included on every rental booking.",
+      "Every rental vehicle goes through the same inspection and compliance checks as our managed fleet before it's assigned to your trip.",
   },
   {
     icon: CalendarClock,
-    title: "Simple Booking & Scheduling",
+    title: "Simple Rental & Scheduling",
     description:
       "Request a quote, confirm your route and timing, and we handle vehicle assignment, driver scheduling, and dispatch.",
   },
@@ -53,12 +53,12 @@ const features = [
     icon: BadgeCheck,
     title: "Compliance-Ready Documentation",
     description:
-      "Insurance, licensing, and vehicle inspection records available on request for corporate and institutional bookings.",
+      "Insurance, licensing, and vehicle inspection records available on request for corporate and institutional rentals.",
   },
 ];
 
 const audiencePoints = [
-  "Schools and universities booking buses for field trips and events",
+  "Schools and universities renting buses for field trips and events",
   "Companies renting buses for offsites, conferences, or staff outings",
   "Event organizers needing group transportation for attendees",
   "Travel and tour operators requiring reliable charter vehicles",
@@ -82,19 +82,19 @@ export default function BusRentalPage() {
       />
       <ServicePageLayout
         eyebrow="Bus Rental"
-        title="On-Demand Bus Rental, Backed by Real Technology"
-        heroDescription="Rent buses for events, tours, staff trips, and short-term transport needs — with the same live tracking, vetted drivers, and AI safety monitoring behind every EIQAN-managed fleet."
+        title="On-Demand Bus Rental"
+        heroDescription="Rent buses for events, tours, staff trips, and short-term transport needs — with vetted drivers and the same safety standards behind every EIQAN-managed fleet."
         heroImage="/images/slide-4.jpg"
-        introEyebrow="Why Book Through EIQAN"
+        introEyebrow="Why Rent From EIQAN"
         introTitle="Rental Transport That Doesn't Compromise on Safety"
         introParagraphs={[
-          "Most bus rental bookings hand you a vehicle and a driver with no visibility once the trip starts. EIQAN applies the same operational standard we use for schools and corporates to every rental — live tracking, safety monitoring, and accountable drivers.",
+          "Most bus rental companies hand you a vehicle and a driver with no visibility once the trip starts. EIQAN applies the same operational standard we use for schools and corporates to every rental — vetted drivers, safety-checked vehicles, and dedicated trip support.",
           "Whether it's a single field trip or a recurring seasonal contract, you get a straightforward quote, a confirmed schedule, and full visibility into the trip from departure to return.",
         ]}
         features={features}
         audienceTitle="Built for Every Kind of Trip"
         audiencePoints={audiencePoints}
-        ctaTitle="Need a Bus for an Upcoming Trip or Event?"
+        ctaTitle="Need a Bus for an Upcoming Project?"
         ctaDescription="Tell us your dates, route, and group size — we'll get back to you within 24 hours with availability and pricing."
         breadcrumbs={[{ label: "Bus Rental", href: "/bus-rental" }]}
       />

@@ -41,10 +41,10 @@ export const navItems: NavItem[] = [
 ];
 
 export const services: NavItem[] = [
+  { label: "Bus Rental", href: "/bus-rental" },
   { label: "Student Transportation", href: "/student-transportation" },
   { label: "Corporate Shuttle", href: "/corporate-shuttle" },
   { label: "Fleet Management", href: "/fleet-management" },
-  { label: "Bus Rental", href: "/bus-rental" },
 ];
 
 export const quickLinks: NavItem[] = [

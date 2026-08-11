@@ -28,11 +28,11 @@ const features = [
     icon: Bus,
     title: "Flexible Fleet Options",
     description:
-      "From mini-buses to full-size coaches, rent the right vehicle for one-off trips, seasonal contracts, or recurring events.",
+      "From mini buses to 71 seaters, rent the right vehicle for your long term and short term projects.",
   },
   {
     icon: MapPin,
-    title: "Dedicated Trip Support",
+    title: "Dedicated Support",
     description:
       "A dedicated coordinator manages your trip from confirmation to drop-off, so organizers always have a direct point of contact.",
   },
@@ -40,13 +40,13 @@ const features = [
     icon: ShieldCheck,
     title: "Safety-Checked Vehicles",
     description:
-      "Every rental vehicle goes through the same inspection and compliance checks as our managed fleet before it's assigned to your trip.",
+      "Every rental vehicle goes through the same inspection and compliance checks as our managed fleet before it's assigned to your project.",
   },
   {
     icon: CalendarClock,
-    title: "Simple Rental & Scheduling",
+    title: "Simple Rental",
     description:
-      "Request a quote, confirm your route and timing, and we handle vehicle assignment, driver scheduling, and dispatch.",
+      "Request a quote, confirm your route and timing, and we handle vehicle assignment, driver, and dispatch.",
   },
   {
     icon: Users,
@@ -63,11 +63,11 @@ const features = [
 ];
 
 const audiencePoints = [
+  "Organizations with long-term and short-term bus rental needs",
   "Schools and universities renting buses for field trips and events",
   "Companies renting buses for offsites, conferences, or staff outings",
   "Event organizers needing group transportation for attendees",
   "Travel and tour operators requiring reliable charter vehicles",
-  "Organizations with short-term or seasonal transport needs",
   "Anyone who wants rental transport with the same visibility as a managed fleet",
 ];
 
@@ -88,13 +88,13 @@ export default function BusRentalPage() {
       <ServicePageLayout
         eyebrow="Bus Rental"
         title="On-Demand Bus Rental"
-        heroDescription="Rent buses for events, tours, staff trips, and short-term transport needs — with vetted drivers and the same safety standards behind every EIQAN-managed fleet."
+        heroDescription="Reliable long-term and flexible short-term bus rental solutions for staff transportation, corporate shuttles, and workforce mobility — all backed by EIQAN's uncompromising safety standards."
         heroImage="/images/slide-4.jpg"
         introEyebrow="Why Rent From EIQAN"
-        introTitle="Rental Transport That Doesn't Compromise on Safety"
+        introTitle="Reliable Bus Rental Backed by People You Can Trust"
         introParagraphs={[
-          "Most bus rental companies hand you a vehicle and a driver with no visibility once the trip starts. EIQAN applies the same operational standard we use for schools and corporates to every rental — vetted drivers, safety-checked vehicles, and dedicated trip support.",
-          "Whether it's a single field trip or a recurring seasonal contract, you get a straightforward quote, a confirmed schedule, and full visibility into the trip from departure to return.",
+          "Most bus rental companies simply provide a vehicle and a driver. EIQAN delivers dependable transportation backed by experienced teams, professional drivers, responsive operations, and dedicated trip coordination to ensure every journey runs smoothly.",
+          "Whether it's a single trip or a long-term transportation contract, you receive a clear quotation, confirmed schedules, reliable service, and continuous operational support from departure to arrival.",
         ]}
         features={features}
         audienceTitle="Built for Every Kind of Trip"

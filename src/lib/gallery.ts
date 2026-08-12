@@ -36,7 +36,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "/images/gallery/bus-rental-01.jpg",
-    alt: "EIQAN-branded rental bus, side view",
+    alt: "EIQAN-branded rental coaster bus, studio shot",
     category: "Bus Rental",
   },
   {
@@ -56,7 +56,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "/images/gallery/bus-rental-05.jpg",
-    alt: "EIQAN-branded rental bus",
+    alt: "EIQAN-branded rental bus, rear view",
     category: "Bus Rental",
   },
   {
@@ -66,7 +66,7 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "/images/gallery/bus-rental-07.jpg",
-    alt: "EIQAN-branded rental van, front view",
+    alt: "EIQAN-branded rental bus",
     category: "Bus Rental",
   },
   {
@@ -76,12 +76,12 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "/images/gallery/bus-rental-09.jpg",
-    alt: "EIQAN-branded rental bus",
+    alt: "EIQAN-branded rental bus, side view",
     category: "Bus Rental",
   },
   {
     src: "/images/gallery/bus-rental-10.jpg",
-    alt: "EIQAN-branded rental van, side view",
+    alt: "EIQAN-branded rental bus",
     category: "Bus Rental",
   },
   {
@@ -91,7 +91,12 @@ export const galleryImages: GalleryImage[] = [
   },
   {
     src: "/images/gallery/bus-rental-12.jpg",
-    alt: "EIQAN-branded rental bus, studio shot",
+    alt: "EIQAN-branded rental bus",
+    category: "Bus Rental",
+  },
+  {
+    src: "/images/gallery/bus-rental-13.jpg",
+    alt: "EIQAN-branded rental bus",
     category: "Bus Rental",
   },
 ];

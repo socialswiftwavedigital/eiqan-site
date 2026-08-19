@@ -7,33 +7,41 @@ import { Menu, X, ChevronDown } from "lucide-react";
 import Logo from "@/components/Logo";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import { services, siteConfig } from "@/lib/site";
+import { localeHref, stripLocale, type Locale } from "@/lib/i18n";
 
 const primaryLinks = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  { label: "Home", labelAr: "الرئيسية", href: "/" },
+  { label: "About", labelAr: "من نحن", href: "/about" },
 ];
 
 const secondaryLinks = [
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Blog", labelAr: "المدونة", href: "/blog" },
+  { label: "Gallery", labelAr: "معرض الصور", href: "/gallery" },
+  { label: "FAQ", labelAr: "الأسئلة الشائعة", href: "/faq" },
+  { label: "Contact", labelAr: "تواصل معنا", href: "/contact" },
 ];
 
-export default function Header() {
+const text = {
+  en: { services: "Services", getQuote: "Get a Quote", openMenu: "Open menu", closeMenu: "Close menu" },
+  ar: { services: "خدماتنا", getQuote: "اطلب عرض سعر", openMenu: "فتح القائمة", closeMenu: "إغلاق القائمة" },
+};
+
+export default function Header({ lang }: { lang: Locale }) {
   const pathname = usePathname();
+  const canonicalPath = stripLocale(pathname);
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const t = text[lang];
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/" ? canonicalPath === "/" : canonicalPath.startsWith(href);
   const isServiceActive = services.some((s) => isActive(s.href));
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-dark/90 backdrop-blur">
       <div className="container-page flex h-20 items-center justify-between">
-        <Link href="/" aria-label={`${siteConfig.name} home`}>
+        <Link href={localeHref(lang, "/")} aria-label={`${siteConfig.name} home`}>
           <Logo />
         </Link>
 
@@ -44,12 +52,12 @@ export default function Header() {
           {primaryLinks.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={localeHref(lang, item.href)}
               className={`text-sm font-medium transition-colors hover:text-teal ${
                 isActive(item.href) ? "text-teal" : "text-white/80"
               }`}
             >
-              {item.label}
+              {lang === "ar" ? item.labelAr : item.label}
             </Link>
           ))}
 
@@ -66,7 +74,7 @@ export default function Header() {
                 isServiceActive ? "text-teal" : "text-white/80"
               }`}
             >
-              Services
+              {t.services}
               <ChevronDown
                 className={`h-3.5 w-3.5 transition-transform ${
                   servicesOpen ? "rotate-180" : ""
@@ -79,13 +87,13 @@ export default function Header() {
                   {services.map((item) => (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={localeHref(lang, item.href)}
                       onClick={() => setServicesOpen(false)}
                       className={`block px-4 py-3 text-sm font-medium transition-colors hover:bg-white/5 hover:text-teal ${
                         isActive(item.href) ? "text-teal" : "text-white/80"
                       }`}
                     >
-                      {item.label}
+                      {lang === "ar" ? item.labelAr : item.label}
                     </Link>
                   ))}
                 </div>
@@ -96,30 +104,30 @@ export default function Header() {
           {secondaryLinks.map((item) => (
             <Link
               key={item.href}
-              href={item.href}
+              href={localeHref(lang, item.href)}
               className={`text-sm font-medium transition-colors hover:text-teal ${
                 isActive(item.href) ? "text-teal" : "text-white/80"
               }`}
             >
-              {item.label}
+              {lang === "ar" ? item.labelAr : item.label}
             </Link>
           ))}
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <LanguageSwitcher />
+          <LanguageSwitcher lang={lang} />
           <Link
-            href="/contact"
+            href={localeHref(lang, "/contact")}
             className="rounded-lg bg-teal px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark"
           >
-            Get a Quote
+            {t.getQuote}
           </Link>
         </div>
 
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-lg p-2 text-white lg:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
+          aria-label={open ? t.closeMenu : t.openMenu}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
@@ -136,13 +144,13 @@ export default function Header() {
             {primaryLinks.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href={localeHref(lang, item.href)}
                   onClick={() => setOpen(false)}
                   className={`block rounded-md px-3 py-3 text-base font-medium ${
                     isActive(item.href) ? "text-teal" : "text-white/85"
                   }`}
                 >
-                  {item.label}
+                  {lang === "ar" ? item.labelAr : item.label}
                 </Link>
               </li>
             ))}
@@ -156,7 +164,7 @@ export default function Header() {
                   isServiceActive ? "text-teal" : "text-white/85"
                 }`}
               >
-                Services
+                {t.services}
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${
                     mobileServicesOpen ? "rotate-180" : ""
@@ -168,13 +176,13 @@ export default function Header() {
                   {services.map((item) => (
                     <li key={item.href}>
                       <Link
-                        href={item.href}
+                        href={localeHref(lang, item.href)}
                         onClick={() => setOpen(false)}
                         className={`block rounded-md px-3 py-2.5 text-sm font-medium ${
                           isActive(item.href) ? "text-teal" : "text-white/70"
                         }`}
                       >
-                        {item.label}
+                        {lang === "ar" ? item.labelAr : item.label}
                       </Link>
                     </li>
                   ))}
@@ -185,26 +193,26 @@ export default function Header() {
             {secondaryLinks.map((item) => (
               <li key={item.href}>
                 <Link
-                  href={item.href}
+                  href={localeHref(lang, item.href)}
                   onClick={() => setOpen(false)}
                   className={`block rounded-md px-3 py-3 text-base font-medium ${
                     isActive(item.href) ? "text-teal" : "text-white/85"
                   }`}
                 >
-                  {item.label}
+                  {lang === "ar" ? item.labelAr : item.label}
                 </Link>
               </li>
             ))}
           </ul>
           <Link
-            href="/contact"
+            href={localeHref(lang, "/contact")}
             onClick={() => setOpen(false)}
             className="mt-4 block rounded-lg bg-teal px-5 py-3 text-center text-sm font-semibold text-white"
           >
-            Get a Quote
+            {t.getQuote}
           </Link>
           <div className="mt-4 flex justify-center">
-            <LanguageSwitcher />
+            <LanguageSwitcher lang={lang} />
           </div>
         </nav>
       )}

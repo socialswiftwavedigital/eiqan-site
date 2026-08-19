@@ -3,11 +3,32 @@
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import { PrimaryButton, SecondaryButton } from "@/components/ui";
+import { localeHref, type Locale } from "@/lib/i18n";
 
 const STORAGE_KEY = "eiqan-welcome-seen";
 
-export default function WelcomePopup() {
+const text = {
+  en: {
+    welcome: "Welcome to EIQAN",
+    title: "Safer, Smarter Transportation — Delivered.",
+    body: "Live GPS tracking, AI safety monitoring, and fully managed student, corporate, and rental transport. Tell us what you need and we'll get back to you within 24 hours.",
+    getQuote: "Get a Quote",
+    explore: "Explore EIQAN",
+    close: "Close",
+  },
+  ar: {
+    welcome: "مرحباً بكم في إيقان",
+    title: "نقل أكثر أماناً وذكاءً — نُنجزه لكم.",
+    body: "تتبع مباشر عبر GPS، ومراقبة سلامة بالذكاء الاصطناعي، ونقل مُدار بالكامل للطلاب والشركات والتأجير. أخبرنا باحتياجك وسنعاود التواصل معك خلال 24 ساعة.",
+    getQuote: "اطلب عرض سعر",
+    explore: "اكتشف إيقان",
+    close: "إغلاق",
+  },
+};
+
+export default function WelcomePopup({ lang }: { lang: Locale }) {
   const [open, setOpen] = useState(false);
+  const t = text[lang];
 
   useEffect(() => {
     if (sessionStorage.getItem(STORAGE_KEY)) return;
@@ -44,33 +65,29 @@ export default function WelcomePopup() {
         <button
           type="button"
           onClick={close}
-          aria-label="Close"
-          className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
+          aria-label={t.close}
+          className="absolute end-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
         >
           <X className="h-5 w-5" />
         </button>
 
         <div className="relative p-8 text-center">
           <span className="inline-block rounded-full border border-teal/30 bg-teal/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-teal">
-            Welcome to EIQAN
+            {t.welcome}
           </span>
           <h2
             id="welcome-popup-title"
             className="mt-4 text-2xl font-bold text-white text-balance"
           >
-            Safer, Smarter Transportation — Delivered.
+            {t.title}
           </h2>
-          <p className="mt-3 text-sm leading-6 text-white/70">
-            Live GPS tracking, AI safety monitoring, and fully managed
-            student, corporate, and rental transport. Tell us what you need
-            and we&apos;ll get back to you within 24 hours.
-          </p>
+          <p className="mt-3 text-sm leading-6 text-white/70">{t.body}</p>
           <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <PrimaryButton href="/contact" className="w-full sm:w-auto">
-              Get a Quote
+            <PrimaryButton href={localeHref(lang, "/contact")} className="w-full sm:w-auto">
+              {t.getQuote}
             </PrimaryButton>
-            <SecondaryButton href="/about" className="w-full sm:w-auto">
-              Explore EIQAN
+            <SecondaryButton href={localeHref(lang, "/about")} className="w-full sm:w-auto">
+              {t.explore}
             </SecondaryButton>
           </div>
         </div>

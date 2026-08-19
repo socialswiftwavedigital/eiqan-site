@@ -8,22 +8,43 @@ import {
   WhatsAppIcon,
 } from "@/components/SocialIcons";
 import { quickLinks, services, siteConfig } from "@/lib/site";
+import { localeHref, type Locale } from "@/lib/i18n";
 
-export default function Footer() {
+const text = {
+  en: {
+    tagline2:
+      "Safer, smarter transportation for schools, companies, and bus operators worldwide.",
+    quickLinks: "Quick Links",
+    services: "Services",
+    contact: "Contact",
+    whatsappUs: "WhatsApp Us",
+    rights: (year: number) => `© ${year} EIQAN. All rights reserved.`,
+  },
+  ar: {
+    tagline2:
+      "نقل أكثر أماناً وذكاءً للمدارس والشركات ومشغلي الحافلات حول العالم.",
+    quickLinks: "روابط سريعة",
+    services: "خدماتنا",
+    contact: "تواصل معنا",
+    whatsappUs: "راسلنا عبر واتساب",
+    rights: (year: number) => `© ${year} إيقان. جميع الحقوق محفوظة.`,
+  },
+};
+
+export default function Footer({ lang }: { lang: Locale }) {
   const year = new Date().getFullYear();
+  const t = text[lang];
+  const tagline = lang === "ar" ? siteConfig.taglineAr : siteConfig.tagline;
 
   return (
     <footer className="border-t border-white/10 bg-dark text-white/70">
       <div className="container-page grid grid-cols-1 gap-x-8 gap-y-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <Link href="/">
+          <Link href={localeHref(lang, "/")}>
             <Logo />
           </Link>
-          <p className="mt-5 text-sm leading-6">{siteConfig.tagline}</p>
-          <p className="mt-2 text-sm leading-6">
-            Safer, smarter transportation for schools, companies, and bus
-            operators worldwide.
-          </p>
+          <p className="mt-5 text-sm leading-6">{tagline}</p>
+          <p className="mt-2 text-sm leading-6">{t.tagline2}</p>
           <div className="mt-6 flex items-center gap-3">
             <SocialIcon href={siteConfig.social.linkedin} label="LinkedIn">
               <LinkedInIcon className="h-4 w-4" />
@@ -42,13 +63,13 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Quick Links
+            {t.quickLinks}
           </h3>
           <ul className="mt-5 space-y-3 text-sm">
             {quickLinks.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-teal">
-                  {item.label}
+                <Link href={localeHref(lang, item.href)} className="hover:text-teal">
+                  {lang === "ar" ? item.labelAr : item.label}
                 </Link>
               </li>
             ))}
@@ -57,13 +78,13 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Services
+            {t.services}
           </h3>
           <ul className="mt-5 space-y-3 text-sm">
             {services.map((item) => (
               <li key={item.href}>
-                <Link href={item.href} className="hover:text-teal">
-                  {item.label}
+                <Link href={localeHref(lang, item.href)} className="hover:text-teal">
+                  {lang === "ar" ? item.labelAr : item.label}
                 </Link>
               </li>
             ))}
@@ -72,7 +93,7 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm font-semibold uppercase tracking-wide text-white">
-            Contact
+            {t.contact}
           </h3>
           <ul className="mt-5 space-y-3.5 text-sm">
             <li className="flex items-center gap-2">
@@ -95,7 +116,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="hover:text-teal"
               >
-                WhatsApp Us
+                {t.whatsappUs}
               </a>
             </li>
           </ul>
@@ -104,8 +125,8 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs sm:flex-row">
-          <p>&copy; {year} EIQAN. All rights reserved.</p>
-          <p>{siteConfig.tagline}</p>
+          <p>{t.rights(year)}</p>
+          <p>{tagline}</p>
         </div>
       </div>
     </footer>

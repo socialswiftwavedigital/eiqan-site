@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { ReactNode } from "react";
 import { ArrowRight } from "lucide-react";
 import Breadcrumbs, { type Crumb } from "@/components/Breadcrumbs";
+import { localeHref, type Locale } from "@/lib/i18n";
 
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
@@ -71,7 +72,7 @@ export function PrimaryButton({
       className={`inline-flex items-center justify-center gap-2 rounded-lg bg-teal px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-teal-dark ${className}`}
     >
       {children}
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4 rtl:rotate-180" />
     </Link>
   );
 }
@@ -141,13 +142,31 @@ export function StatBlock({
   );
 }
 
+const ctaDefaults: Record<Locale, { title: string; description: string; requestQuote: string; readFaqs: string }> = {
+  en: {
+    title: "Ready to Upgrade Your Transport Operations?",
+    description: "Tell us about your needs and we'll get back to you within 24 hours.",
+    requestQuote: "Request a Quote",
+    readFaqs: "Read FAQs",
+  },
+  ar: {
+    title: "هل أنت مستعد لتطوير عمليات النقل لديك؟",
+    description: "أخبرنا باحتياجاتك وسنعاود التواصل معك خلال 24 ساعة.",
+    requestQuote: "اطلب عرض سعر",
+    readFaqs: "الأسئلة الشائعة",
+  },
+};
+
 export function CTASection({
-  title = "Ready to Upgrade Your Transport Operations?",
-  description = "Tell us about your needs and we'll get back to you within 24 hours.",
+  title,
+  description,
+  lang = "en",
 }: {
   title?: string;
   description?: string;
+  lang?: Locale;
 }) {
+  const t = ctaDefaults[lang];
   return (
     <section className="bg-dark py-16">
       <div className="container-page">
@@ -161,14 +180,18 @@ export function CTASection({
           />
           <div className="relative">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">
-              {title}
+              {title ?? t.title}
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-white/75">
-              {description}
+              {description ?? t.description}
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-              <PrimaryButton href="/contact">Request a Quote</PrimaryButton>
-              <SecondaryButton href="/faq">Read FAQs</SecondaryButton>
+              <PrimaryButton href={localeHref(lang, "/contact")}>
+                {t.requestQuote}
+              </PrimaryButton>
+              <SecondaryButton href={localeHref(lang, "/faq")}>
+                {t.readFaqs}
+              </SecondaryButton>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 export const siteConfig = {
   name: "EIQAN",
   tagline: "Certainty in Motion.",
+  taglineAr: "اليقين في التنقل.",
   description:
     "EIQAN is a tech-enabled transportation service that gives schools, companies, and bus operators complete visibility, AI-powered safety monitoring, and real-time control over every journey — without the operational burden.",
   url: "https://www.eiqan.com",
@@ -24,36 +25,61 @@ export const isProdDeployment = process.env.VERCEL_ENV
 
 export type NavItem = {
   label: string;
+  labelAr: string;
   href: string;
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Student Transportation", href: "/student-transportation" },
-  { label: "Corporate Shuttle", href: "/corporate-shuttle" },
-  { label: "Fleet Management", href: "/fleet-management" },
-  { label: "Bus Rental", href: "/bus-rental" },
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", labelAr: "الرئيسية", href: "/" },
+  { label: "About", labelAr: "من نحن", href: "/about" },
+  {
+    label: "Student Transportation",
+    labelAr: "نقل الطلاب",
+    href: "/student-transportation",
+  },
+  {
+    label: "Corporate Shuttle",
+    labelAr: "نقل الموظفين",
+    href: "/corporate-shuttle",
+  },
+  {
+    label: "Fleet Management",
+    labelAr: "إدارة الأسطول",
+    href: "/fleet-management",
+  },
+  { label: "Bus Rental", labelAr: "تأجير الحافلات", href: "/bus-rental" },
+  { label: "Blog", labelAr: "المدونة", href: "/blog" },
+  { label: "Gallery", labelAr: "معرض الصور", href: "/gallery" },
+  { label: "FAQ", labelAr: "الأسئلة الشائعة", href: "/faq" },
+  { label: "Contact", labelAr: "تواصل معنا", href: "/contact" },
 ];
 
 export const services: NavItem[] = [
-  { label: "Bus Rental", href: "/bus-rental" },
-  { label: "Student Transportation", href: "/student-transportation" },
-  { label: "Corporate Shuttle", href: "/corporate-shuttle" },
-  { label: "Fleet Management", href: "/fleet-management" },
+  { label: "Bus Rental", labelAr: "تأجير الحافلات", href: "/bus-rental" },
+  {
+    label: "Student Transportation",
+    labelAr: "نقل الطلاب",
+    href: "/student-transportation",
+  },
+  {
+    label: "Corporate Shuttle",
+    labelAr: "نقل الموظفين",
+    href: "/corporate-shuttle",
+  },
+  {
+    label: "Fleet Management",
+    labelAr: "إدارة الأسطول",
+    href: "/fleet-management",
+  },
 ];
 
 export const quickLinks: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", labelAr: "الرئيسية", href: "/" },
+  { label: "About", labelAr: "من نحن", href: "/about" },
+  { label: "Blog", labelAr: "المدونة", href: "/blog" },
+  { label: "Gallery", labelAr: "معرض الصور", href: "/gallery" },
+  { label: "FAQ", labelAr: "الأسئلة الشائعة", href: "/faq" },
+  { label: "Contact", labelAr: "تواصل معنا", href: "/contact" },
 ];
 
 export const stats = [
@@ -61,6 +87,13 @@ export const stats = [
   { value: 3, suffix: " Min", label: "Incident Response Time" },
   { value: 76, suffix: "%", label: "Reduction in Safety Violations" },
   { value: 99, suffix: "%", label: "Check-In & Check-Out Accuracy" },
+];
+
+export const statsAr = [
+  { value: 98, suffix: "%", label: "أداء الرحلات في الوقت المحدد" },
+  { value: 3, suffix: " دقائق", label: "زمن الاستجابة للحوادث" },
+  { value: 76, suffix: "%", label: "تراجع في مخالفات السلامة" },
+  { value: 99, suffix: "%", label: "دقة تسجيل الحضور والانصراف" },
 ];
 
 export const coreFeatures = [
@@ -96,6 +129,39 @@ export const coreFeatures = [
   },
 ];
 
+export const coreFeaturesAr = [
+  {
+    title: "تتبع مباشر عبر GPS",
+    description:
+      "تتبع كل حافلة لحظياً، مع إرسال وقت الوصول المتوقع لأولياء الأمور والإداريين فور بدء الرحلة.",
+  },
+  {
+    title: "مراقبة السلامة بالذكاء الاصطناعي",
+    description:
+      "تحليل مستمر بالذكاء الاصطناعي لكاميرات وصوت المركبة لرصد الأحداث غير الآمنة والتنبيه بها قبل تفاقمها.",
+  },
+  {
+    title: "إدارة ذكية للمسارات",
+    description:
+      "يعمل نظامنا على تحسين المسارات تلقائياً بناءً على الازدحام والغياب والظروف اللحظية — لتقليل الوقت والتكلفة.",
+  },
+  {
+    title: "تسجيل دخول وخروج رقمي",
+    description:
+      "يُسجَّل صعود ونزول كل طالب وموظف عبر رمز QR أو NFC أو سوار إلكتروني — دون أي هامش للخطأ.",
+  },
+  {
+    title: "إشراف تشغيلي كامل",
+    description:
+      "لوحات تحكم مخصصة للمدارس والشركات ومشغلي الحافلات لمتابعة كامل الخدمة بنظرة واحدة.",
+  },
+  {
+    title: "تقارير وتنبيهات آلية",
+    description:
+      "إشعارات فورية لوقت الوصول ومخالفات السلامة والغياب، مع تقارير يومية تُنشأ وتُرسل تلقائياً.",
+  },
+];
+
 export const problems = [
   {
     number: "01",
@@ -114,6 +180,27 @@ export const problems = [
     title: "Manual & Chaotic Operations",
     description:
       "Routes, attendance, and compliance still managed via WhatsApp and spreadsheets. One mistake creates cascading failures.",
+  },
+];
+
+export const problemsAr = [
+  {
+    number: "01",
+    title: "غياب الرؤية اللحظية",
+    description:
+      "لا يملك أولياء الأمور والإداريون أي تتبع مباشر للحافلات أثناء التشغيل. أين الحافلة؟ وهل صعد الطفل إليها؟ لا أحد يعرف.",
+  },
+  {
+    number: "02",
+    title: "انعدام مراقبة السلامة",
+    description:
+      "لا توجد وسيلة لرصد السلوكيات غير الآمنة داخل المركبة أو التعامل معها. تبقى الحوادث دون تبليغ أو مراجعة أو حل.",
+  },
+  {
+    number: "03",
+    title: "عمليات يدوية وفوضوية",
+    description:
+      "لا تزال المسارات والحضور والالتزام تُدار عبر واتساب وجداول البيانات. أي خطأ واحد يتسبب في سلسلة من الإخفاقات.",
   },
 ];
 

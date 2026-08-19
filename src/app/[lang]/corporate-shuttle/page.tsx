@@ -142,6 +142,7 @@ export default async function CorporateShuttlePage({
         title={t.title}
         heroDescription={t.heroDescription}
         heroImage="/images/serve-corporate.jpg"
+        introImage="/images/slide-2.jpg"
         introEyebrow={t.introEyebrow}
         introTitle={t.introTitle}
         introParagraphs={t.introParagraphs}

@@ -30,11 +30,6 @@ export const galleryImages: GalleryImage[] = [
     category: "Fleet Management",
   },
   {
-    src: "/images/slide-5.jpg",
-    alt: "EIQAN transportation service on route",
-    category: "Bus Rental",
-  },
-  {
     src: "/images/gallery/bus-rental-01.jpg",
     alt: "EIQAN-branded rental coaster bus, studio shot",
     category: "Bus Rental",

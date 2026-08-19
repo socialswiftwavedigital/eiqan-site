@@ -142,6 +142,7 @@ export default async function FleetManagementPage({
         title={t.title}
         heroDescription={t.heroDescription}
         heroImage="/images/serve-fleet.jpg"
+        introImage="/images/slide-3.jpg"
         introEyebrow={t.introEyebrow}
         introTitle={t.introTitle}
         introParagraphs={t.introParagraphs}

@@ -162,6 +162,7 @@ export default async function BusRentalPage({
         title={t.title}
         heroDescription={t.heroDescription}
         heroImage="/images/slide-4.jpg"
+        introImage="/images/gallery/bus-rental-03.jpg"
         introEyebrow={t.introEyebrow}
         introTitle={t.introTitle}
         introParagraphs={t.introParagraphs}

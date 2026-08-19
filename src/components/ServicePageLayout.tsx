@@ -30,6 +30,7 @@ export default function ServicePageLayout({
   title,
   heroDescription,
   heroImage,
+  introImage,
   introEyebrow,
   introTitle,
   introParagraphs,
@@ -48,6 +49,7 @@ export default function ServicePageLayout({
   title: string;
   heroDescription: string;
   heroImage: string;
+  introImage?: string;
   introEyebrow: string;
   introTitle: string;
   introParagraphs: string[];
@@ -78,7 +80,7 @@ export default function ServicePageLayout({
         <div className="container-page grid gap-12 lg:grid-cols-2 lg:items-center">
           <div className="relative order-2 h-80 overflow-hidden rounded-2xl sm:h-96 lg:order-1">
             <Image
-              src={heroImage}
+              src={introImage ?? heroImage}
               alt={title}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

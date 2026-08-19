@@ -5,6 +5,12 @@ import { CTASection, PageHero, SectionHeading } from "@/components/ui";
 import type { Crumb } from "@/components/Breadcrumbs";
 import Gallery from "@/components/Gallery";
 import type { GalleryImage } from "@/lib/gallery";
+import type { Locale } from "@/lib/i18n";
+
+const text = {
+  en: { whatsIncluded: "What's Included", everythingYouNeed: "Everything Your Operation Needs, in One Service", gallery: "Gallery", seeTheFleet: "See the Fleet" },
+  ar: { whatsIncluded: "ما تشمله الخدمة", everythingYouNeed: "كل ما تحتاجه عمليتك، في خدمة واحدة", gallery: "معرض الصور", seeTheFleet: "شاهد الأسطول" },
+};
 
 type Feature = {
   icon: LucideIcon;
@@ -36,6 +42,7 @@ export default function ServicePageLayout({
   ctaTitle,
   ctaDescription,
   breadcrumbs,
+  lang = "en",
 }: {
   eyebrow: string;
   title: string;
@@ -53,7 +60,9 @@ export default function ServicePageLayout({
   ctaTitle: string;
   ctaDescription: string;
   breadcrumbs?: Crumb[];
+  lang?: Locale;
 }) {
+  const t = text[lang];
   return (
     <>
       <PageHero
@@ -62,6 +71,7 @@ export default function ServicePageLayout({
         description={heroDescription}
         breadcrumbs={breadcrumbs}
         image={heroImage}
+        lang={lang}
       />
 
       <section className="bg-white py-16 sm:py-24">
@@ -91,8 +101,8 @@ export default function ServicePageLayout({
       <section className="bg-offwhite py-16 sm:py-24">
         <div className="container-page">
           <SectionHeading
-            eyebrow="What's Included"
-            title="Everything Your Operation Needs, in One Service"
+            eyebrow={t.whatsIncluded}
+            title={t.everythingYouNeed}
           />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
@@ -135,8 +145,8 @@ export default function ServicePageLayout({
         <section className="bg-white py-16 sm:py-24">
           <div className="container-page">
             <SectionHeading
-              eyebrow="Gallery"
-              title={galleryTitle ?? "See the Fleet"}
+              eyebrow={t.gallery}
+              title={galleryTitle ?? t.seeTheFleet}
             />
 
             {fleetClasses && fleetClasses.length > 0 && (
@@ -180,7 +190,7 @@ export default function ServicePageLayout({
         </section>
       )}
 
-      <CTASection title={ctaTitle} description={ctaDescription} />
+      <CTASection title={ctaTitle} description={ctaDescription} lang={lang} />
     </>
   );
 }

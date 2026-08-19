@@ -1,17 +1,21 @@
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
+import { localeHref, type Locale } from "@/lib/i18n";
 
 export type Crumb = { label: string; href: string };
 
 export default function Breadcrumbs({
   items,
   light = true,
+  lang = "en",
 }: {
   items: Crumb[];
   light?: boolean;
+  lang?: Locale;
 }) {
-  const trail: Crumb[] = [{ label: "Home", href: "/" }, ...items];
+  const homeLabel = lang === "ar" ? "الرئيسية" : "Home";
+  const trail: Crumb[] = [{ label: homeLabel, href: "/" }, ...items];
 
   return (
     <>
@@ -23,7 +27,7 @@ export default function Breadcrumbs({
             "@type": "ListItem",
             position: index + 1,
             name: crumb.label,
-            item: `${siteConfig.url}${crumb.href}`,
+            item: `${siteConfig.url}${localeHref(lang, crumb.href)}`,
           })),
         }}
       />
@@ -47,7 +51,7 @@ export default function Breadcrumbs({
                   </span>
                 ) : (
                   <Link
-                    href={crumb.href}
+                    href={localeHref(lang, crumb.href)}
                     className={
                       light
                         ? "text-white/55 hover:text-teal"

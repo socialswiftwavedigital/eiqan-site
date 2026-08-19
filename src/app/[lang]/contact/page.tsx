@@ -4,15 +4,71 @@ import { PageHero } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
+import { resolveLocale, type Locale } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Get a quote for student transportation, corporate shuttle, fleet management, or bus rental services. We respond within 24 hours.",
-  alternates: { canonical: "/contact" },
+const metaText: Record<Locale, { title: string; description: string }> = {
+  en: {
+    title: "Contact Us",
+    description:
+      "Get a quote for student transportation, corporate shuttle, fleet management, or bus rental services. We respond within 24 hours.",
+  },
+  ar: {
+    title: "تواصل معنا",
+    description:
+      "احصل على عرض سعر لخدمات نقل الطلاب أو نقل الموظفين أو إدارة الأسطول أو تأجير الحافلات. نرد خلال 24 ساعة.",
+  },
 };
 
-export default function ContactPage() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const lang = resolveLocale((await params).lang);
+  return {
+    title: metaText[lang].title,
+    description: metaText[lang].description,
+    alternates: { canonical: "/contact" },
+  };
+}
+
+const text = {
+  en: {
+    heroEyebrow: "Contact",
+    heroTitle: "Ready to Upgrade Your Transport Operations?",
+    heroDescription: "Tell us about your needs and we'll get back to you within 24 hours.",
+    breadcrumb: "Contact",
+    getInTouch: "Get in Touch",
+    email: "Email",
+    phone: "Phone",
+    whatsapp: "WhatsApp",
+    responseTime: "Response Time",
+    within24: "Within 24 hours",
+    sendMessage: "Send Us a Message",
+  },
+  ar: {
+    heroEyebrow: "تواصل معنا",
+    heroTitle: "هل أنت مستعد لتطوير عمليات النقل لديك؟",
+    heroDescription: "أخبرنا باحتياجاتك وسنعاود التواصل معك خلال 24 ساعة.",
+    breadcrumb: "تواصل معنا",
+    getInTouch: "تواصل معنا",
+    email: "البريد الإلكتروني",
+    phone: "الهاتف",
+    whatsapp: "واتساب",
+    responseTime: "زمن الاستجابة",
+    within24: "خلال 24 ساعة",
+    sendMessage: "أرسل لنا رسالة",
+  },
+};
+
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const lang = resolveLocale((await params).lang);
+  const t = text[lang];
+
   return (
     <>
       <StructuredData
@@ -30,49 +86,50 @@ export default function ContactPage() {
       />
 
       <PageHero
-        eyebrow="Contact"
-        title="Ready to Upgrade Your Transport Operations?"
-        description="Tell us about your needs and we'll get back to you within 24 hours."
-        breadcrumbs={[{ label: "Contact", href: "/contact" }]}
+        eyebrow={t.heroEyebrow}
+        title={t.heroTitle}
+        description={t.heroDescription}
+        breadcrumbs={[{ label: t.breadcrumb, href: "/contact" }]}
         image="/images/serve-corporate.jpg"
+        lang={lang}
       />
 
       <section className="bg-white py-16 sm:py-24">
         <div className="container-page grid gap-12 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <h2 className="text-xl font-bold text-dark">Get in Touch</h2>
+            <h2 className="text-xl font-bold text-dark">{t.getInTouch}</h2>
             <div className="mt-6 space-y-5">
               <ContactInfoRow
                 icon={Mail}
-                label="Email"
+                label={t.email}
                 value={siteConfig.email}
                 href={`mailto:${siteConfig.email}`}
               />
               <ContactInfoRow
                 icon={Phone}
-                label="Phone"
+                label={t.phone}
                 value={siteConfig.phone}
                 href={siteConfig.phoneHref}
               />
               <ContactInfoRow
                 icon={MessageCircle}
-                label="WhatsApp"
+                label={t.whatsapp}
                 value={siteConfig.phone}
                 href={siteConfig.whatsapp}
                 external
               />
               <ContactInfoRow
                 icon={Clock}
-                label="Response Time"
-                value="Within 24 hours"
+                label={t.responseTime}
+                value={t.within24}
               />
             </div>
           </div>
 
           <div className="rounded-2xl border border-black/8 bg-offwhite p-6 sm:p-8 lg:col-span-3">
-            <h2 className="text-xl font-bold text-dark">Send Us a Message</h2>
+            <h2 className="text-xl font-bold text-dark">{t.sendMessage}</h2>
             <div className="mt-6">
-              <ContactForm />
+              <ContactForm lang={lang} />
             </div>
           </div>
         </div>

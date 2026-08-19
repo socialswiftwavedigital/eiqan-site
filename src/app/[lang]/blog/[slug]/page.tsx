@@ -7,9 +7,10 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
 import { blogPosts, getPostBySlug } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
+import { resolveLocale } from "@/lib/i18n";
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 };
 
 export function generateStaticParams() {
@@ -17,8 +18,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { slug, lang: rawLang } = await params;
+  const lang = resolveLocale(rawLang);
+  const post = getPostBySlug(slug, lang);
   if (!post) return {};
 
   return {
@@ -35,10 +37,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+const text = {
+  en: { blog: "Blog" },
+  ar: { blog: "المدونة" },
+};
+
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const { slug, lang: rawLang } = await params;
+  const lang = resolveLocale(rawLang);
+  const post = getPostBySlug(slug, lang);
   if (!post) notFound();
+  const t = text[lang];
 
   return (
     <>
@@ -60,8 +69,9 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="mx-auto max-w-3xl">
             <Breadcrumbs
               light={false}
+              lang={lang}
               items={[
-                { label: "Blog", href: "/blog" },
+                { label: t.blog, href: "/blog" },
                 { label: post.title, href: `/blog/${post.slug}` },
               ]}
             />
@@ -74,11 +84,10 @@ export default async function BlogPostPage({ params }: Props) {
             </h1>
             <div className="mt-4 flex items-center gap-1.5 text-sm text-dark/50">
               <CalendarDays className="h-4 w-4" />
-              {new Date(post.date).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {new Date(post.date).toLocaleDateString(
+                lang === "ar" ? "ar-SA" : "en-US",
+                { year: "numeric", month: "long", day: "numeric" }
+              )}
             </div>
 
             <div className="relative mt-8 h-72 w-full overflow-hidden rounded-2xl sm:h-96">
@@ -102,7 +111,7 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </article>
 
-      <CTASection />
+      <CTASection lang={lang} />
     </>
   );
 }

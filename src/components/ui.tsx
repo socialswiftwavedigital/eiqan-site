@@ -206,12 +206,14 @@ export function PageHero({
   description,
   breadcrumbs,
   image,
+  lang = "en",
 }: {
   eyebrow: string;
   title: string;
   description: string;
   breadcrumbs?: Crumb[];
   image?: string;
+  lang?: Locale;
 }) {
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-dark py-16 sm:py-24">
@@ -230,7 +232,7 @@ export function PageHero({
       <div className="container-page relative text-center">
         {breadcrumbs && (
           <div className="mb-6 flex justify-center">
-            <Breadcrumbs items={breadcrumbs} light />
+            <Breadcrumbs items={breadcrumbs} light lang={lang} />
           </div>
         )}
         <div className="flex justify-center">

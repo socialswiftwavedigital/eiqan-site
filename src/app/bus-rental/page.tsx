@@ -62,6 +62,30 @@ const features = [
   },
 ];
 
+const fleetClasses = [
+  {
+    title: "Compact Class",
+    seats: "Up to 19 seats",
+    description:
+      "Nimble vans and mini-buses for small groups, airport transfers, and point-to-point trips.",
+    image: "/images/gallery/bus-rental-12.jpg",
+  },
+  {
+    title: "Mid-Size",
+    seats: "20-33 seats",
+    description:
+      "Our most requested class — staff shuttles, school trips, and corporate outings that need a balance of capacity and maneuverability.",
+    image: "/images/gallery/bus-rental-07.jpg",
+  },
+  {
+    title: "High Capacity",
+    seats: "34-71 seats",
+    description:
+      "Full-size coaches built for large groups, long-distance charters, and major events where every seat counts.",
+    image: "/images/gallery/bus-rental-04.jpg",
+  },
+];
+
 const audiencePoints = [
   "Organizations with long-term and short-term bus rental needs",
   "Schools and universities renting buses for field trips and events",
@@ -99,8 +123,9 @@ export default function BusRentalPage() {
         features={features}
         audienceTitle="Built for Every Kind of Trip"
         audiencePoints={audiencePoints}
+        fleetClasses={fleetClasses}
         gallery={rentalGalleryImages}
-        galleryTitle="Vehicles Available for Rental"
+        galleryTitle="Our Fleet"
         ctaTitle="Need a Bus for an Upcoming Project?"
         ctaDescription="Tell us your dates, route, and group size — we'll get back to you within 24 hours with availability and pricing."
         breadcrumbs={[{ label: "Bus Rental", href: "/bus-rental" }]}

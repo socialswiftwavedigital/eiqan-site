@@ -12,6 +12,13 @@ type Feature = {
   description: string;
 };
 
+type FleetClass = {
+  title: string;
+  seats: string;
+  description: string;
+  image: string;
+};
+
 export default function ServicePageLayout({
   eyebrow,
   title,
@@ -23,6 +30,7 @@ export default function ServicePageLayout({
   features,
   audienceTitle,
   audiencePoints,
+  fleetClasses,
   gallery,
   galleryTitle,
   ctaTitle,
@@ -39,6 +47,7 @@ export default function ServicePageLayout({
   features: Feature[];
   audienceTitle: string;
   audiencePoints: string[];
+  fleetClasses?: FleetClass[];
   gallery?: GalleryImage[];
   galleryTitle?: string;
   ctaTitle: string;
@@ -129,6 +138,41 @@ export default function ServicePageLayout({
               eyebrow="Gallery"
               title={galleryTitle ?? "See the Fleet"}
             />
+
+            {fleetClasses && fleetClasses.length > 0 && (
+              <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {fleetClasses.map((fleetClass) => (
+                  <div
+                    key={fleetClass.title}
+                    className="overflow-hidden rounded-2xl border border-black/8 bg-white shadow-sm"
+                  >
+                    <div className="relative h-52 w-full">
+                      <Image
+                        src={fleetClass.image}
+                        alt={fleetClass.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="text-lg font-semibold text-dark">
+                          {fleetClass.title}
+                        </h3>
+                        <span className="shrink-0 rounded-full bg-teal/10 px-3 py-1 text-xs font-medium text-teal">
+                          {fleetClass.seats}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-dark/65">
+                        {fleetClass.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
             <div className="mt-12">
               <Gallery images={gallery} />
             </div>

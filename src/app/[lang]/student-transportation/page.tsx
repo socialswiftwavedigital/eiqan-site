@@ -142,7 +142,7 @@ export default async function StudentTransportationPage({
         title={t.title}
         heroDescription={t.heroDescription}
         heroImage="/images/serve-schools.jpg"
-        introImage="/images/slide-1.jpg"
+        introImage="/images/gallery/bus-rental-02.jpg"
         introEyebrow={t.introEyebrow}
         introTitle={t.introTitle}
         introParagraphs={t.introParagraphs}

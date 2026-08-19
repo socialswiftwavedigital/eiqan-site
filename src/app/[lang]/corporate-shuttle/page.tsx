@@ -10,7 +10,7 @@ import {
 import ServicePageLayout from "@/components/ServicePageLayout";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { buildMetadata, resolveLocale, type Locale } from "@/lib/i18n";
 
 const metaText: Record<Locale, { title: string; description: string }> = {
   en: {
@@ -31,11 +31,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = resolveLocale((await params).lang);
-  return {
+  return buildMetadata({
+    lang,
+    path: "/corporate-shuttle",
     title: metaText[lang].title,
     description: metaText[lang].description,
-    alternates: { canonical: "/corporate-shuttle" },
-  };
+    image: "/images/serve-corporate.jpg",
+  });
 }
 
 const featureIcons = [MapPin, ScanLine, Route, LayoutDashboard, BellRing, Clock];

@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ShieldCheck, Cpu, Gauge, Eye } from "lucide-react";
 import { CTASection, PageHero, SectionHeading, StatBlock } from "@/components/ui";
 import { siteConfig, stats, statsAr, values, valuesAr } from "@/lib/site";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { buildMetadata, resolveLocale, type Locale } from "@/lib/i18n";
 
 const metaText: Record<Locale, { title: string; description: string }> = {
   en: {
@@ -24,11 +24,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = resolveLocale((await params).lang);
-  return {
+  return buildMetadata({
+    lang,
+    path: "/about",
     title: metaText[lang].title,
     description: metaText[lang].description,
-    alternates: { canonical: "/about" },
-  };
+    image: "/images/slide-2.jpg",
+  });
 }
 
 const valueIcons = [ShieldCheck, Gauge, Cpu, Eye];

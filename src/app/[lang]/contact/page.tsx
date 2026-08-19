@@ -4,7 +4,7 @@ import { PageHero } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { buildMetadata, resolveLocale, type Locale } from "@/lib/i18n";
 
 const metaText: Record<Locale, { title: string; description: string }> = {
   en: {
@@ -25,11 +25,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = resolveLocale((await params).lang);
-  return {
+  return buildMetadata({
+    lang,
+    path: "/contact",
     title: metaText[lang].title,
     description: metaText[lang].description,
-    alternates: { canonical: "/contact" },
-  };
+    image: "/images/serve-corporate.jpg",
+  });
 }
 
 const text = {

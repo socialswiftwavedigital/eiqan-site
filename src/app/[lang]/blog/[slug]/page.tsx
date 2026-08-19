@@ -7,7 +7,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import StructuredData from "@/components/StructuredData";
 import { blogPosts, getPostBySlug } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
-import { resolveLocale } from "@/lib/i18n";
+import { localeHref, resolveLocale } from "@/lib/i18n";
 
 type Props = {
   params: Promise<{ lang: string; slug: string }>;
@@ -23,16 +23,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug, lang);
   if (!post) return {};
 
+  const path = `/blog/${post.slug}`;
+
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: {
+      canonical: localeHref(lang, path),
+      languages: {
+        en: localeHref("en", path),
+        ar: localeHref("ar", path),
+      },
+    },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.description,
       images: [post.image],
       publishedTime: post.date,
+      locale: lang === "ar" ? "ar_SA" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [post.image],
     },
   };
 }

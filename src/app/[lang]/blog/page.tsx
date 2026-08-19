@@ -4,7 +4,7 @@ import Link from "next/link";
 import { CalendarDays, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/ui";
 import { blogPosts, blogPostsAr } from "@/lib/blog";
-import { localeHref, resolveLocale, type Locale } from "@/lib/i18n";
+import { buildMetadata, localeHref, resolveLocale, type Locale } from "@/lib/i18n";
 
 const metaText: Record<Locale, { title: string; description: string }> = {
   en: {
@@ -25,11 +25,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = resolveLocale((await params).lang);
-  return {
+  return buildMetadata({
+    lang,
+    path: "/blog",
     title: metaText[lang].title,
     description: metaText[lang].description,
-    alternates: { canonical: "/blog" },
-  };
+    image: "/images/slide-4.jpg",
+  });
 }
 
 const text = {

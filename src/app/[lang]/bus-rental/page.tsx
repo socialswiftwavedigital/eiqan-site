@@ -11,7 +11,7 @@ import ServicePageLayout from "@/components/ServicePageLayout";
 import StructuredData from "@/components/StructuredData";
 import { siteConfig } from "@/lib/site";
 import { galleryImages } from "@/lib/gallery";
-import { resolveLocale, type Locale } from "@/lib/i18n";
+import { buildMetadata, resolveLocale, type Locale } from "@/lib/i18n";
 
 const rentalGalleryImages = galleryImages.filter(
   (image) => image.category === "Bus Rental"
@@ -36,11 +36,13 @@ export async function generateMetadata({
   params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
   const lang = resolveLocale((await params).lang);
-  return {
+  return buildMetadata({
+    lang,
+    path: "/bus-rental",
     title: metaText[lang].title,
     description: metaText[lang].description,
-    alternates: { canonical: "/bus-rental" },
-  };
+    image: "/images/slide-4.jpg",
+  });
 }
 
 const featureIcons = [Bus, MapPin, ShieldCheck, CalendarClock, Users, BadgeCheck];

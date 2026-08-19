@@ -31,7 +31,7 @@ import {
   stats,
   statsAr,
 } from "@/lib/site";
-import { localeHref, locales, resolveLocale } from "@/lib/i18n";
+import { buildMetadata, localeHref, locales, resolveLocale } from "@/lib/i18n";
 import WelcomePopup from "@/components/WelcomePopup";
 
 export async function generateStaticParams() {
@@ -53,11 +53,13 @@ export async function generateMetadata({
       ? "إيقان شركة نقل ذكية تقدم للمدارس والشركات ومشغلي الحافلات رؤية كاملة، ومراقبة سلامة مدعومة بالذكاء الاصطناعي، وتحكماً فورياً في كل رحلة — دون أي عبء تشغيلي."
       : siteConfig.description;
 
-  return {
+  return buildMetadata({
+    lang,
+    path: "/",
     title,
     description,
-    alternates: { canonical: lang === "en" ? "/" : `/${lang}` },
-  };
+    image: "/images/slide-1.jpg",
+  });
 }
 
 const featureIcons = [MapPin, ShieldCheck, Route, ScanLine, LayoutDashboard, BellRing];
